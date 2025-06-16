@@ -1,334 +1,136 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Сибсетьстрой — строительство линейных коммуникаций</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сибсетьстрой</title>
   <style>
     body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0; padding: 0;
-      background: #f0f4f9;
-      color: #333;
-      line-height: 1.5;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: #f7f7f7;
     }
     header {
-      background: #0077cc;
-      color: white;
-      padding: 20px 30px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      background: #2e3b55;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
     }
-    header nav {
-      display: flex;
-      gap: 15px;
+    nav {
+      background: #1c2535;
+      padding: 10px;
+      text-align: center;
     }
-    header nav a {
-      color: white;
+    nav a {
+      color: #fff;
       text-decoration: none;
-      font-weight: 600;
-      padding: 8px 12px;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-    header nav a:hover {
-      background: #005fa3;
-    }
-    main {
-      max-width: 960px;
-      margin: 20px auto;
-      padding: 0 15px 40px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.07);
-    }
-    h1, h2, h3 {
-      color: #005fa3;
-    }
-    h1 {
-      margin-top: 0;
+      margin: 0 15px;
     }
     section {
-      margin-bottom: 40px;
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
     }
-    p {
-      margin: 10px 0 18px;
-    }
-    ul {
-      list-style: inside disc;
-      margin: 10px 0 20px;
-      padding-left: 0;
-    }
-    /* Техника слайдеры */
-    .grid {
+    .tech-gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
-    .card {
-      position: relative;
-      background: #f9faff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,119,204,0.15);
-      overflow: hidden;
-      text-align: center;
-      padding-bottom: 50px; /* пространство для кнопок */
-    }
-    .slider {
-      position: relative;
-      height: 180px;
-      overflow: hidden;
-    }
-    .slider img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      display: block;
-      user-select: none;
-    }
-    .prev-btn, .next-btn {
-      position: absolute;
-      bottom: 10px;
-      background: rgba(0,119,204,0.8);
-      border: none;
-      color: white;
-      font-size: 24px;
-      padding: 6px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      user-select: none;
-      transition: background 0.3s ease;
-    }
-    .prev-btn:hover, .next-btn:hover {
-      background: rgba(0,119,204,1);
-    }
-    .prev-btn {
-      left: 10px;
-    }
-    .next-btn {
-      right: 10px;
-    }
-    /* Форма обратной связи */
-    form {
-      max-width: 500px;
-      margin: 0 auto;
-      background: #eef6fc;
-      padding: 20px;
+    .tech-item {
+      background: #fff;
       border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,95,163,0.2);
-    }
-    label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: 600;
-      color: #00497a;
-    }
-    input, textarea {
-      width: 100%;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
       padding: 10px;
-      margin-bottom: 18px;
-      border: 1.5px solid #ccc;
-      border-radius: 6px;
-      font-size: 16px;
-      font-family: inherit;
-      resize: vertical;
     }
-    button[type="submit"] {
-      background: #0077cc;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      font-size: 18px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    button[type="submit"]:hover {
-      background: #005fa3;
+    .tech-item img {
+      width: 100%;
+      height: auto;
+      border-bottom: 1px solid #ddd;
     }
     footer {
+      background: #2e3b55;
+      color: #fff;
       text-align: center;
-      padding: 15px 10px;
-      color: #777;
-      font-size: 14px;
-      background: #f8faff;
-      border-top: 1px solid #ddd;
+      padding: 15px;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>ООО «Сибсетьстрой»</h1>
+    <p>Бестраншейная прокладка коммуникаций. ГНБ. Газ, вода, кабель.</p>
+  </header>
 
-<header>
   <nav>
-    <a href="#about">О компании</a>
-    <a href="#equipment">Техника</a>
-    <a href="#projects">Наши проекты</a>
-    <a href="#guarantee">Гарантия</a>
+    <a href="#about">О нас</a>
+    <a href="#tech">Техника</a>
+    <a href="#projects">Проекты</a>
     <a href="#contact">Контакты</a>
   </nav>
-</header>
 
-<main>
   <section id="about">
-    <h1>Сибсетьстрой</h1>
-    <p>Компания «Сибсетьстрой» успешно функционирует более 15 лет, предоставляя услуги по строительству линейных объектов по всей России. За это время мы накопили богатый опыт и зарекомендовали себя как надежный партнер.</p>
-    <p>Мы специализируемся на направленном бурении (ГНБ), что позволяет осуществлять строительные работы с минимальными разрушениями. Наша команда имеет глубокие знания и квалификацию в данной области, что гарантирует качество выполнения проектов.</p>
-    <p>Наши специалисты внесены в реестр «НОСТРОЙ» под регистрационным номером: СРО-С-283-21062017, своевременно проходят повышение квалификации и аттестации; Компания имеет аттестацию по технологии сварки: РД, ЗН, НИ.</p>
-    <p>ООО «Сибсетьстрой» входит в состав саморегулируемой организации «Ассоциация ПСС».</p>
+    <h2>О компании</h2>
+    <p>Компания «Сибсетьстрой» успешно функционирует более 15 лет, предоставляя услуги по строительству линейных объектов по всей России...</p>
   </section>
 
-  <section id="equipment">
-  <h2>Наш парк техники</h2>
-  <div class="grid">
-
-    <div class="card">
-      <div class="slider">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/XCMG_XZ360E_Directional_Drilling_Rig.jpg/320px-XCMG_XZ360E_Directional_Drilling_Rig.jpg" alt="Установка ГНБ XCMG 360E" />
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/XCMG_XZ360E_drill_02.jpg/320px-XCMG_XZ360E_drill_02.jpg" alt="Установка ГНБ XCMG 360E" style="display:none;" />
+  <section id="tech" class="tech-section">
+    <h2>Наша техника</h2>
+    <div class="tech-gallery">
+      <div class="tech-item">
+        <img src="images/xcmg360e.jpg" alt="XCMG 360E">
+        <p>Установка ГНБ XCMG 360E</p>
       </div>
-      <p>Установка горизонтально-направленного бурения XCMG 360E</p>
-      <button class="prev-btn" onclick="plusSlides(this, -1)">‹</button>
-      <button class="next-btn" onclick="plusSlides(this, 1)">›</button>
-    </div>
-
-    <div class="card">
-      <div class="slider">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/XCMG_230E_horizontal_directional_drill.jpg/320px-XCMG_230E_horizontal_directional_drill.jpg" alt="Установка ГНБ XCMG 230E" />
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/XCMG_XZ230E_Directional_Drilling_Rig_20160926.jpg/320px-XCMG_XZ230E_Directional_Drilling_Rig_20160926.jpg" alt="Установка ГНБ XCMG 230E" style="display:none;" />
+      <div class="tech-item">
+        <img src="images/xcmg230e.jpg" alt="XCMG 230E">
+        <p>Установка ГНБ XCMG 230E</p>
       </div>
-      <p>Установка горизонтально-направленного бурения XCMG 230E</p>
-      <button class="prev-btn" onclick="plusSlides(this, -1)">‹</button>
-      <button class="next-btn" onclick="plusSlides(this, 1)">›</button>
-    </div>
-
-    <div class="card">
-      <div class="slider">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Vermeer_36x50_Directional_Drilling_Rig_1.jpg/320px-Vermeer_36x50_Directional_Drilling_Rig_1.jpg" alt="Установка ГНБ Vermeer 36x50" />
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Vermeer_36x50_Directional_Drilling_Rig_2.jpg/320px-Vermeer_36x50_Directional_Drilling_Rig_2.jpg" alt="Установка ГНБ Vermeer 36x50" style="display:none;" />
+      <div class="tech-item">
+        <img src="images/vermeer36x50.jpg" alt="Vermeer 36x50">
+        <p>Установка ГНБ Vermeer 36x50</p>
       </div>
-      <p>Установка горизонтально-направленного бурения Vermeer 36x50</p>
-      <button class="prev-btn" onclick="plusSlides(this, -1)">‹</button>
-      <button class="next-btn" onclick="plusSlides(this, 1)">›</button>
-    </div>
-
-    <div class="card">
-      <div class="slider">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Doosan_DX190_excavator.jpg/320px-Doosan_DX190_excavator.jpg" alt="Экскаватор Doosan 190" />
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Doosan_DX190LC_excavator_02.jpg/320px-Doosan_DX190LC_excavator_02.jpg" alt="Экскаватор Doosan 190" style="display:none;" />
+      <div class="tech-item">
+        <img src="images/doosan190.jpg" alt="Doosan 190">
+        <p>Экскаватор Doosan 190</p>
       </div>
-      <p>Экскаватор Doosan 190</p>
-      <button class="prev-btn" onclick="plusSlides(this, -1)">‹</button>
-      <button class="next-btn" onclick="plusSlides(this, 1)">›</button>
-    </div>
-
-    <div class="card">
-      <div class="slider">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Doosan_DX210LC_excavator_01.jpg/320px-Doosan_DX210LC_excavator_01.jpg" alt="Экскаватор Doosan 210" />
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Doosan_DX210LC_excavator_02.jpg/320px-Doosan_DX210LC_excavator_02.jpg" alt="Экскаватор Doosan 210" style="display:none;" />
+      <div class="tech-item">
+        <img src="images/doosan210.jpg" alt="Doosan 210">
+        <p>Экскаватор Doosan 210</p>
       </div>
-      <p>Экскаватор Doosan 210</p>
-      <button class="prev-btn" onclick="plusSlides(this, -1)">‹</button>
-      <button class="next-btn" onclick="plusSlides(this, 1)">›</button>
-    </div>
-
-    <div class="card">
-      <div class="slider">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/JCB_3CX_Backhoe_loader_Lima_2013.jpg/320px-JCB_3CX_Backhoe_loader_Lima_2013.jpg" alt="Экскаватор погрузчик JCB 3CX" />
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/JCB_3CX_backhoe_loader_03.jpg/320px-JCB_3CX_backhoe_loader_03.jpg" alt="Экскаватор погрузчик JCB 3CX" style="display:none;" />
+      <div class="tech-item">
+        <img src="images/jcb3cx.jpg" alt="JCB 3CX">
+        <p>Экскаватор-погрузчик JCB 3CX</p>
       </div>
-      <p>Экскаватор погрузчик JCB 3CX</p>
-      <button class="prev-btn" onclick="plusSlides(this, -1)">‹</button>
-      <button class="next-btn" onclick="plusSlides(this, 1)">›</button>
-    </div>
-
-    <div class="card">
-      <div class="slider">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Kamaz_43118_2010_01.jpg/320px-Kamaz_43118_2010_01.jpg" alt="Камаз 43118" />
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Kamaz_43118_front_view.jpg/320px-Kamaz_43118_front_view.jpg" alt="Камаз 43118" style="display:none;" />
+      <div class="tech-item">
+        <img src="images/kamaz43118.jpg" alt="Камаз 43118">
+        <p>Камаз 43118</p>
       </div>
-      <p>Камаз 43118</p>
-      <button class="prev-btn" onclick="plusSlides(this, -1)">‹</button>
-      <button class="next-btn" onclick="plusSlides(this, 1)">›</button>
     </div>
-
-  </div>
-</section>
-
+  </section>
 
   <section id="projects">
     <h2>Наши проекты</h2>
-    <ul>
-      <li>Наружные сети водоснабжения на объекте: «Freedom Village». (2024)</li>
-      <li>Строительство распределительного газопровода в с. Новороманово, Калманского района, Алтайского края. (2023)</li>
-      <li>Новосибирский логистический Почтовый центр ФГУП «Почта России». Наружные сети водоснабжения и канализации. (2019)</li>
-      <li>Газопровод высокого давления для газоснабжения поселка закрытого типа, Новосибирская область, пос. Садовый. (2024)</li>
-      <li>Распределительный газопровод до жилых домов в г. Барнауле, п. Ильича. (2024)</li>
-      <li>Распределительный газопровод в с. Алтайское (2, 8-11 этапы). (2023)</li>
-      <li>Прокладка кабельных линий 0,4 кВ от ТП-РП-4 до «Помещение (аэровокзал)» «АО Аэропорт Толмачево» (2023)</li>
-      <li>Строительство распределительного газопровода в с. Бочкари (ГНБ). (2024)</li>
-    </ul>
-  </section>
-
-  <section id="guarantee">
-    <h2>Гарантия качества</h2>
-    <p>Компания «Сибсетьстрой» гарантирует высокое качество выполненных работ благодаря использованию современной техники и квалифицированного персонала. Мы строго соблюдаем все строительные нормы и стандарты, что подтверждается положительными отзывами и длительным сотрудничеством с нашими клиентами.</p>
+    <p>Информация о проектах будет добавлена позже.</p>
   </section>
 
   <section id="contact">
     <h2>Связаться с нами</h2>
-    <form id="contact-form">
-      <label for="name">Имя</label>
-      <input type="text" id="name" name="name" required />
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required />
-
-      <label for="message">Сообщение</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-
+    <form>
+      <label for="name">Имя:</label><br>
+      <input type="text" id="name" name="name"><br><br>
+      <label for="phone">Телефон:</label><br>
+      <input type="text" id="phone" name="phone"><br><br>
+      <label for="message">Сообщение:</label><br>
+      <textarea id="message" name="message" rows="4"></textarea><br><br>
       <button type="submit">Отправить</button>
     </form>
   </section>
-</main>
 
-<footer>
-  &copy; 2025 ООО «Сибсетьстрой». Все права защищены.
-</footer>
-
-<script>
-  // Функция для переключения слайдов в каждой карточке
-  function plusSlides(button, n) {
-    const card = button.closest('.card');
-    if (!card) return;
-    const slider = card.querySelector('.slider');
-    if (!slider) return;
-
-    const images = slider.querySelectorAll('img');
-    let currentIndex = -1;
-
-    images.forEach((img, i) => {
-      if (img.style.display !== 'none') {
-        currentIndex = i;
-      }
-    });
-
-    let newIndex = currentIndex + n;
-    if (newIndex < 0) newIndex = images.length - 1;
-    if (newIndex >= images.length) newIndex = 0;
-
-    images.forEach((img, i) => {
-      img.style.display = i === newIndex ? 'block' : 'none';
-    });
-  }
-
-  // Отправка формы (просто заглушка)
-  document.getElementById('contact-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
-    e.target.reset();
-  });
-</script>
-
+  <footer>
+    <p>© 2025 Сибсетьстрой | Тел: 89833115046 | Email: sibsetstroy@yandex.ru</p>
+  </footer>
 </body>
 </html>
